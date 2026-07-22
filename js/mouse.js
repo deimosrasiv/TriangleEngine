@@ -9,7 +9,7 @@ class Mouse {
         this.targetY = canvas.height / 2;
 
         // Factor de suavizado
-        this.smooth = 0.18;
+        this.smooth = 0.30;
 
         canvas.addEventListener("mousemove", e => {
 
