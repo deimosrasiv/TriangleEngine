@@ -24,8 +24,19 @@ class Mouse {
 
     update() {
 
-        this.light.x += (this.targetX - this.light.x) * this.smooth;
-        this.light.y += (this.targetY - this.light.y) * this.smooth;
+        const dx = this.targetX - this.light.x;
+        const dy = this.targetY - this.light.y;
+
+        const distance = Math.hypot(dx, dy);
+
+        let smooth = 0.18;
+
+        if (distance > 300) smooth = 0.35;
+        else if (distance > 150) smooth = 0.28;
+        else if (distance > 50) smooth = 0.22;
+
+        this.light.x += dx * smooth;
+        this.light.y += dy * smooth;
 
     }
 
